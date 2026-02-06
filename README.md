@@ -48,9 +48,6 @@ To remove all installed extensions from your Sliver environment AND clean the re
 ```bash
 # Remove from Sliver
 ./cleanup_all_extensions.sh
-
-# Clean build artifacts from this repo
-./clean_repo.sh
 ```
 
 ## Shoutouts & Credits
