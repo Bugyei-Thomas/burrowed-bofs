@@ -57,12 +57,12 @@ To remove all installed extensions from your Sliver environment AND clean the re
 
 A huge thank you to the original authors of these amazing BOFs:
 
-*   **[BSummerz](https://github.com/bsummerz)** for `BOF-enumfiles`.
-*   **[Octoberfest7](https://github.com/Octoberfest7)** for `Defender-Exclusions-Creator-BOF`.
-*   **[nickvourd](https://github.com/nickvourd)** and **[merterpreter](https://github.com/merterpreter)** for `PrivKit`.
-*   **[EspressoCake](https://github.com/EspressoCake)** for `SQL-BOF`.
+*   **[wsummerhill](https://github.com/wsummerhill)** for `BOF-enumfiles`.
+*   **[EspressoCake](https://github.com/EspressoCake)** for `Defender-Exclusions-Creator-BOF`.
+*   **[mertdas](https://github.com/mertdas)** and **[merterpreter](https://github.com/merterpreter)** for `PrivKit`.
+*   **[Tw1sm](https://github.com/Tw1sm)** for `SQL-BOF`.
 *   **[icyguider](https://github.com/icyguider)** for the `UAC-BOF-Bonanza` suite.
-*   **[0xcc00](https://github.com/0xb11a1)** for the Rust-based `uac_bypass_cmstp` extension.
+*   **[0xb11a1](https://github.com/0xb11a1)** for the Rust-based `uac_bypass_cmstp` extension.
 
 ---
 *Note: This repository is for educational and authorized testing purposes only.*
