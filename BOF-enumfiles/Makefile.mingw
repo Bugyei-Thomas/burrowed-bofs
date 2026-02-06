@@ -1,0 +1,14 @@
+GXX = x86_64-w64-mingw32-g++
+CFLAGS = -std=c++17 -Wno-write-strings -Wno-conversion-null -Wno-unused-variable
+
+OUTDIR = x64/Release/Compiled
+IMDIR = x64/Release
+
+all: $(OUTDIR)/enumfiles.x64.o
+
+$(OUTDIR)/enumfiles.x64.o: enumfiles.cpp beacon.h base/helpers.h
+	@mkdir -p $(OUTDIR)
+	$(GXX) -c enumfiles.cpp -o $@ $(CFLAGS)
+
+clean:
+	rm -rf x64

@@ -1,17 +1,27 @@
 {
-    "name": "enumfiles",
-    "version": "1.0.0",
-    "command_name": "enumfiles",
-    "files": [
-        {
-            "os": "windows",
-            "arch": "amd64",
-            "path": "enumfiles.x64.o"
-        },
-        {
-            "os": "windows",
-            "arch": "386",
-            "path": "enumfiles.x86.o"
-        }
-    ]
+  "name": "enumfiles",
+  "version": "1.0.0",
+  "command_name": "enumfiles",
+  "extension_author": "converted for sliver",
+  "original_author": "bsummerz",
+  "repo_url": "https://github.com/bsummerz/BOF-enumfiles",
+  "help": "Enumerate files and folders locally including LOLBins",
+  "long_help": "Supported types: all, lolbins, remoting, dotnet, browser-installs, browser-userdata, python, powershell-hist, webservers, unattended, show",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "enumfiles.x64.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "type",
+      "desc": "Type of enumeration: all, lolbins, remoting, dotnet, browser-installs, browser-userdata, python, powershell-hist, webservers, unattended, show",
+      "type": "string",
+      "optional": false
+    }
+  ]
 }

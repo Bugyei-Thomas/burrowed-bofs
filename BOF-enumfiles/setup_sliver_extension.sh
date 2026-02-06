@@ -10,13 +10,16 @@ echo "Setting up BOF-enumfiles extension in: $EXTENSIONS_DIR"
 echo "Source directory: $BOF_DIR"
 echo ""
 
-# Build BOF first (requires MSVC nmake)
+# Build BOF first (prefers nmake, fallbacks to mingw on Linux)
 echo "Building BOF..."
 if command -v nmake &> /dev/null; then
     nmake /NOLOGO 2>&1 | grep -v "Creating library" || echo "  Note: Build may have completed (ignore nmake warnings if BOF files exist)"
+elif command -v x86_64-w64-mingw32-g++ &> /dev/null; then
+    echo "  nmake not found, using mingw-w64 fallback..."
+    make -f Makefile.mingw
 else
-    echo "  ⚠ Warning: nmake not found. Assuming BOF is already built."
-    echo "  (Requires MSVC on Windows or wine with MSVC on Linux)"
+    echo "  ⚠ Warning: Build tools (nmake/mingw) not found. Assuming BOF is already built."
+    echo "  (Requires MSVC on Windows or mingw-w64 on Linux)"
 fi
 echo ""
 

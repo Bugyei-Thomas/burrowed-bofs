@@ -75,6 +75,13 @@ find . -name "extension.json" | while read ext_file; do
         bof_source="$subdir/$bof_path"
         bof_dest="$ext_dir/$bof_filename"
         
+        # If not found at the exact path in extension.json, check if it's in a 'bin' folder
+        if [ ! -f "$bof_source" ]; then
+            if [ -f "$subdir/bin/$bof_filename" ]; then
+                bof_source="$subdir/bin/$bof_filename"
+            fi
+        fi
+        
         if [ -f "$bof_source" ]; then
             cp "$bof_source" "$bof_dest"
             echo "  ✓ Copied BOF: $bof_filename"

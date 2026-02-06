@@ -2,6 +2,13 @@
   "name": "cGenerateDefenderExclusion",
   "version": "1.0.0",
   "command_name": "cGenerateDefenderExclusion",
+  "extension_author": "converted for sliver",
+  "original_author": "Octoberfest7",
+  "repo_url": "https://github.com/Octoberfest7/Defender-Exclusions-Creator-BOF",
+  "help": "Add or remove Windows Defender exclusions (extensions, processes, folders)",
+  "long_help": "Usage: cGenerateDefenderExclusion (add|remove) (path|process|extension) thing_to_add [optional computer name]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
   "files": [
     {
       "os": "windows",
@@ -12,6 +19,32 @@
       "os": "windows",
       "arch": "386",
       "path": "cGenerateDefenderExclusion.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "method",
+      "desc": "Action to perform: 1=add, 2=remove",
+      "type": "int",
+      "optional": false
+    },
+    {
+      "name": "exclusion_type",
+      "desc": "Type of exclusion: 1=path, 2=extension, 3=process",
+      "type": "int",
+      "optional": false
+    },
+    {
+      "name": "exclusion_item",
+      "desc": "The path, extension, or process name to exclude",
+      "type": "wstring",
+      "optional": false
+    },
+    {
+      "name": "computer_name",
+      "desc": "Optional remote computer name",
+      "type": "wstring",
+      "optional": true
     }
   ]
 }

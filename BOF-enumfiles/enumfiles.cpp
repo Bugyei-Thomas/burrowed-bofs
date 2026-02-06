@@ -1,5 +1,5 @@
-#include <Windows.h>
-#include "base\helpers.h"
+#include <windows.h>
+#include "base/helpers.h"
 
 // Basic enumeration BOF for finding local files/folders of interest during post-exploitation
 

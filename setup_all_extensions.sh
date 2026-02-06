@@ -14,8 +14,9 @@ echo "  1. BOF-enumfiles (1 extension)"
 echo "  2. Defender-Exclusions-Creator-BOF (1 extension)"
 echo "  3. PrivKit (10 extensions)"
 echo "  4. SQL-BOF (28 extensions)"
+echo "  5. Uac_cmstp_bypass (1 extension)"
 echo ""
-echo "Total: 47 extensions"
+echo "Total: 48 extensions"
 echo "=========================================="
 echo ""
 
@@ -87,9 +88,9 @@ run_setup "$BOFTAKE_DIR/sliver_extension_uac_bypass_cmstp" "setup_sliver_extensi
 echo "=========================================="
 echo "  Master Setup Complete"
 echo "=========================================="
-echo "Projects successfully setup: $total_success / 5"
+echo "Projects successfully setup: $total_success / 6"
 if [ $total_failed -gt 0 ]; then
-    echo "Projects failed: $total_failed / 5"
+    echo "Projects failed: $total_failed / 6"
 fi
 echo ""
 echo "Extensions directory: ~/.sliver-client/extensions"
