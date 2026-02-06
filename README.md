@@ -1,4 +1,4 @@
-# BOF Take - Sliver BOF Extensions
+# Burrowed-Bofs - Sliver BOF Extensions
 
 This repository contains a curated collection of Beacon Object Files (BOFs) configured as extensions for the [Sliver C2 framework](https://github.com/BishopFox/sliver).
 
