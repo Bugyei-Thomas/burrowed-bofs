@@ -6,10 +6,12 @@ CC_x86 := i686-w64-mingw32-g++
 COMPILER_SILENCE_WARNINGS := -Wno-unused-variable -Wno-write-strings -Wno-conversion-null
 
 all:
+	mkdir -p ../dist
 	$(CC_x64) $(COMPILER_SILENCE_WARNINGS) -o ../dist/$(BOFNAME).x64.o -c $(BOFNAME).cpp -masm=intel
 	$(CC_x86) $(COMPILER_SILENCE_WARNINGS) -o ../dist/$(BOFNAME).x86.o -c $(BOFNAME).cpp -masm=intel
 
 debug:
+	mkdir -p ../dist
 	$(CC_x64) -DDEBUGBUILD $(COMPILER_SILENCE_WARNINGS) -o ../dist/$(BOFNAME).x64.o -c $(BOFNAME).cpp -masm=intel
 	$(CC_x86) -DDEBUGBUILD $(COMPILER_SILENCE_WARNINGS) -o ../dist/$(BOFNAME).x86.o -c $(BOFNAME).cpp -masm=intel
 clean:

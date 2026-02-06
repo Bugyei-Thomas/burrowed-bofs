@@ -12,8 +12,13 @@ echo ""
 
 # Build BOF first
 echo "Building BOF..."
+mkdir -p "$BOF_DIR/dist"
 if command -v x86_64-w64-mingw32-g++ &> /dev/null; then
-    cd src && make && cd ..
+    (cd src && make)
+    if [ $? -ne 0 ]; then
+        echo "  ✗ ERROR: BOF build failed"
+        exit 1
+    fi
     echo "  ✓ BOF built successfully"
 else
     echo "  ⚠ Warning: mingw-w64 not found. Assuming BOF is already built."
