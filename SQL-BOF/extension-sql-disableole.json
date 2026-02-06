@@ -1,0 +1,50 @@
+{
+  "name": "sql-disableole",
+  "version": "1.0.0",
+  "command_name": "sql-disableole",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Disable OLE Automation Procedures",
+  "long_help": "sql-disableole [server] [opt: database] [opt: linkedserver] [opt: impersonate]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "togglemodule.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "togglemodule.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "linkedserver",
+      "desc": "Linked server name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "impersonate",
+      "desc": "User to impersonate",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

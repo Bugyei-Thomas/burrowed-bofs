@@ -1,0 +1,25 @@
+{
+  "name": "ModifiableAutorunCheck",
+  "version": "1.0.0",
+  "command_name": "ModifiableAutorunCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check for modifiable autorun registry entries",
+  "long_help": "Enumerates autorun registry locations and checks if any autorun entries point to modifiable files or locations that could be abused for persistence or privilege escalation.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "ModifiableAutorunCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "ModifiableAutorunCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

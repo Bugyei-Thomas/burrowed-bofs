@@ -1,0 +1,38 @@
+{
+  "name": "sql-info",
+  "version": "1.0.0",
+  "command_name": "sql-info",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Gather information about the SQL server",
+  "long_help": "sql-info [server] [opt: database]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "info.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "info.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "sql-databases",
+  "version": "1.0.0",
+  "command_name": "sql-databases",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Enumerate databases on SQL Server",
+  "long_help": "sql-databases [server] [opt: database] [opt: linkedserver] [opt: impersonate]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "databases.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "databases.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "linkedserver",
+      "desc": "Linked server name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "impersonate",
+      "desc": "User to impersonate",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

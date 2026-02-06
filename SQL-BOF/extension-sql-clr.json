@@ -1,0 +1,62 @@
+{
+  "name": "sql-clr",
+  "version": "1.0.0",
+  "command_name": "sql-clr",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Load and execute .NET assembly in a stored procedure",
+  "long_help": "sql-clr [server] [dll_path] [function] [opt: database] [opt: linkedserver] [opt: impersonate]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "clr.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "clr.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "dll_path",
+      "desc": "Path to .NET assembly DLL",
+      "type": "file",
+      "optional": false
+    },
+    {
+      "name": "function",
+      "desc": "Function name to execute",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "linkedserver",
+      "desc": "Linked server name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "impersonate",
+      "desc": "User to impersonate",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

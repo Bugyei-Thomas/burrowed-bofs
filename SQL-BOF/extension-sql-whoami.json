@@ -1,0 +1,50 @@
+{
+  "name": "sql-whoami",
+  "version": "1.0.0",
+  "command_name": "sql-whoami",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Gather logged in user, mapped user and roles on SQL Server",
+  "long_help": "sql-whoami [server] [opt: database] [opt: linkedserver] [opt: impersonate]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "whoami.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "whoami.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "linkedserver",
+      "desc": "Linked server name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "impersonate",
+      "desc": "User to impersonate",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ModifiableSVCCheck",
+  "version": "1.0.0",
+  "command_name": "ModifiableSVCCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check for modifiable Windows services",
+  "long_help": "Enumerates Windows services and checks if any service binaries or their directories can be modified, which could lead to privilege escalation.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "ModifiableSVCCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "ModifiableSVCCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

@@ -1,0 +1,25 @@
+{
+  "name": "AutologonCheck",
+  "version": "1.0.0",
+  "command_name": "AutologonCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check for stored Autologon credentials in registry",
+  "long_help": "Checks the Winlogon registry key for stored autologon credentials. If AutoAdminLogon=1 and DefaultPassword is set, credentials are exposed.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "AutoLogonCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "AutoLogonCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

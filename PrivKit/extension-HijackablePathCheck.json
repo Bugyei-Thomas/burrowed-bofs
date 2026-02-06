@@ -1,0 +1,25 @@
+{
+  "name": "HijackablePathCheck",
+  "version": "1.0.0",
+  "command_name": "HijackablePathCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check for writable directories in system PATH",
+  "long_help": "Enumerates the system PATH environment variable and checks each directory for write permissions. Writable directories in PATH can be abused for DLL hijacking or binary planting.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "HijackablePathCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "HijackablePathCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

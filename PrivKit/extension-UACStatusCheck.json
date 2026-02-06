@@ -1,0 +1,25 @@
+{
+  "name": "UACStatusCheck",
+  "version": "1.0.0",
+  "command_name": "UACStatusCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check UAC status and configuration",
+  "long_help": "Checks the User Account Control (UAC) configuration from registry to determine if UAC is enabled and what level of protection is configured.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "UACStatusCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "UACStatusCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

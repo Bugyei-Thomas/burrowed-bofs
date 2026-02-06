@@ -1,0 +1,32 @@
+{
+  "name": "sql-1434udp",
+  "version": "1.0.0",
+  "command_name": "sql-1434udp",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Obtain SQL Server connection information from the SQL Server Browser service (1434/UDP)",
+  "long_help": "sql-1434udp [server IP]. Must provide an IP; hostnames are not accepted",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "1434udp.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "1434udp.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server IP address (must be IP, not hostname)",
+      "type": "string",
+      "optional": false
+    }
+  ]
+}

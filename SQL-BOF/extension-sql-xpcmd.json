@@ -1,0 +1,56 @@
+{
+  "name": "sql-xpcmd",
+  "version": "1.0.0",
+  "command_name": "sql-xpcmd",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Execute a system command using xp_cmdshell",
+  "long_help": "sql-xpcmd [server] [command] [opt: database] [opt: linkedserver] [opt: impersonate]. Output returned unless using a linked server. WARNING: running a persistent command will cause the beacon to hang",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "xpcmd.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "xpcmd.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "command",
+      "desc": "System command to execute",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "linkedserver",
+      "desc": "Linked server name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "impersonate",
+      "desc": "User to impersonate",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

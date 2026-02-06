@@ -1,0 +1,25 @@
+{
+  "name": "AlwaysInstallElevatedCheck",
+  "version": "1.0.0",
+  "command_name": "AlwaysInstallElevatedCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check if AlwaysInstallElevated privilege escalation vulnerability exists",
+  "long_help": "Checks registry keys for AlwaysInstallElevated policy which allows non-privileged users to install MSI packages with elevated privileges",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "AlwaysInstallElevatedCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "AlwaysInstallElevatedCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

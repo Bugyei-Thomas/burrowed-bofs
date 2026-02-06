@@ -1,0 +1,50 @@
+{
+  "name": "sql-agentstatus",
+  "version": "1.0.0",
+  "command_name": "sql-agentstatus",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Enumerate SQL agent status and jobs",
+  "long_help": "sql-agentstatus [server] [opt: database] [opt: linkedserver] [opt: impersonate]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "agentstatus.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "agentstatus.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "linkedserver",
+      "desc": "Linked server name",
+      "type": "string",
+      "optional": true
+    },
+    {
+      "name": "impersonate",
+      "desc": "User to impersonate",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

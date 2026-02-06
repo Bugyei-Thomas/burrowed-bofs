@@ -1,0 +1,25 @@
+{
+  "name": "TokenPrivilegesCheck",
+  "version": "1.0.0",
+  "command_name": "TokenPrivilegesCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check current token privileges",
+  "long_help": "Enumerates all privileges of the current access token and identifies dangerous privileges that could be used for privilege escalation (e.g., SeDebugPrivilege, SeImpersonatePrivilege).",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "TokenPrivilegesCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "TokenPrivilegesCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

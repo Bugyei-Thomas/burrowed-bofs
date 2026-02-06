@@ -1,0 +1,25 @@
+{
+  "name": "PowerShellHistoryCheck",
+  "version": "1.0.0",
+  "command_name": "PowerShellHistoryCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check for PowerShell command history",
+  "long_help": "Reads the PowerShell history file (ConsoleHost_history.txt) which may contain sensitive information like credentials, commands, or internal network information.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "PowerShellHistoryCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "PowerShellHistoryCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}

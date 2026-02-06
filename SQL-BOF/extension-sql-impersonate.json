@@ -1,0 +1,38 @@
+{
+  "name": "sql-impersonate",
+  "version": "1.0.0",
+  "command_name": "sql-impersonate",
+  "extension_author": "converted for sliver",
+  "original_author": "EspressoCake",
+  "repo_url": "https://github.com/EspressoCake/SQL-BOF",
+  "help": "Enumerate SQL logins that can be impersonated",
+  "long_help": "sql-impersonate [server] [opt: database]",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "impersonate.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "impersonate.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "server",
+      "desc": "SQL Server hostname or IP",
+      "type": "string",
+      "optional": false
+    },
+    {
+      "name": "database",
+      "desc": "Database name",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}

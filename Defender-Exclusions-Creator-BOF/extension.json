@@ -1,0 +1,17 @@
+{
+  "name": "cGenerateDefenderExclusion",
+  "version": "1.0.0",
+  "command_name": "cGenerateDefenderExclusion",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "cGenerateDefenderExclusion.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "cGenerateDefenderExclusion.x86.o"
+    }
+  ]
+}

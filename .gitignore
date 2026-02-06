@@ -1,0 +1,39 @@
+# BOF/Sliver Extension Ignore Rules
+
+# 1. Generated Extension Configs
+# 1. Generated Extension Configs
+# **/extension.json  <-- extension.json are source files in some projects, removing from ignore.
+
+
+# 2. Build Artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.bin
+*.lib
+*.a
+
+# 3. Directories containing builds
+# BOF-enumfiles
+BOF-enumfiles/x64/Release/Compiled/
+BOF-enumfiles/x64/Debug/Compiled/
+BOF-enumfiles/x64/Release/
+BOF-enumfiles/x64/Debug/
+
+# Defender
+Defender-Exclusions-Creator-BOF/dist/
+
+# Rust Target
+sliver_extension_uac_bypass_cmstp/target/
+
+# 4. OS/Editor Metadata
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 5. Sliver Client Extensions (if local)
+# (Standard location is ~/.sliver-client/extensions, but preventing local clutter)
+extensions/

@@ -1,0 +1,25 @@
+{
+  "name": "UnquotedSVCPathCheck",
+  "version": "1.0.0",
+  "command_name": "UnquotedSVCPathCheck",
+  "extension_author": "converted for sliver",
+  "original_author": "merterpreter and nickvourd",
+  "repo_url": "https://github.com/nickvourd/PrivKit",
+  "help": "Check for unquoted service path vulnerabilities",
+  "long_help": "Enumerates Windows services and identifies services with unquoted paths containing spaces that could be exploited for privilege escalation through binary hijacking.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "UnquotedSVCPathCheck.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "UnquotedSVCPathCheck.x86.o"
+    }
+  ],
+  "arguments": []
+}
