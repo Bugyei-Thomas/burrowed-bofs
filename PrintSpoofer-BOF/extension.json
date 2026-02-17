@@ -1,0 +1,38 @@
+{
+  "name": "printspoofer",
+  "version": "1.0.0",
+  "command_name": "printspoofer",
+  "extension_author": "converted for sliver",
+  "original_author": "SlimeOnSecurity",
+  "repo_url": "https://github.com/SlimeOnSecurity/PrintSpoofer-BOF",
+  "help": "Abuse SeImpersonatePrivilege for privilege escalation from NetworkService to SYSTEM.",
+  "long_help": "Usage: printspoofer\n\nThis BOF abuses the SeImpersonatePrivilege by triggering a connection to a named pipe and impersonating the client to gain a SYSTEM token.",
+  "depends_on": "coff-loader",
+  "entrypoint": "go",
+  "files": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "path": "printspoofer.x64.o"
+    },
+    {
+      "os": "windows",
+      "arch": "386",
+      "path": "printspoofer.x86.o"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "interactive",
+      "desc": "Interactive mode",
+      "type": "bool",
+      "optional": true
+    },
+    {
+      "name": "command",
+      "desc": "Command to execute",
+      "type": "string",
+      "optional": true
+    }
+  ]
+}
