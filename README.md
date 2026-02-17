@@ -12,10 +12,11 @@ This project bundles the following BOF suites (Total 48 extensions):
 *   **BOF-enumfiles** (1 extension): Efficient file enumeration.
 *   **Defender-Exclusions-Creator-BOF** (1 extension): Tool to add Windows Defender exclusions.
 *   **uac_bypass_cmstp** (1 extension): Rust-based UAC bypass via `cmstp.exe`.
+*   **PrintSpoofer-Bof** (1 extension): Bof Version of PrintSpoofer.
 
 ## Requirements
 
-To build and install these extensions on Linux, you need:
+To build and install these extensions on Linux, you need
 
 *   `mingw-w64` (for compiling C/C++ BOFs)
 *   `rust` & `cargo` (for the CMSTP UAC bypass extension)
