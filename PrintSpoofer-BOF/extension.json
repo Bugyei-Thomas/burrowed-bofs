@@ -25,7 +25,7 @@
     {
       "name": "interactive",
       "desc": "Interactive mode",
-      "type": "bool",
+      "type": "int",
       "optional": true
     },
     {
