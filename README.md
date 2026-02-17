@@ -59,6 +59,7 @@ A huge thank you to the authors of these amazing BOFs:
 *   **[mertdas](https://github.com/mertdas)** for `PrivKit`.
 *   **[Tw1sm](https://github.com/Tw1sm)** for `SQL-BOF`.
 *   **[icyguider](https://github.com/icyguider)** for the `UAC-BOF-Bonanza` suite.
+*   **[SlimeOnSecurity](https://github.com/SlimeOnSecurity)** for `PrintSpoofer-BOF`.
 *   **[0xb11a1](https://github.com/0xb11a1)** for the Rust-based `uac_bypass_cmstp` extension.
 
 ---

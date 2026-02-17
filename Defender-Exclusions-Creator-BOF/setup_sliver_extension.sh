@@ -84,5 +84,4 @@ else
     exit 1
 fi
 
-echo ""
-echo "Use 'extensions load $ext_dir' in Sliver to load this extension."
+exit 0

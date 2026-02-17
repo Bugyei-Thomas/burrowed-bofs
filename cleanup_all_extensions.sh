@@ -9,12 +9,13 @@ echo "=========================================="
 echo "  BOF Extensions Cleanup Script"
 echo "=========================================="
 echo ""
-echo "This will remove all 48 BOF extensions from:"
+echo "This will remove all 49 BOF extensions from:"
 echo "  $EXTENSIONS_DIR"
 echo ""
 echo "Extensions to be removed:"
 echo "  - enumfiles (BOF-enumfiles)"
 echo "  - cGenerateDefenderExclusion (Defender-Exclusions-Creator-BOF)"
+echo "  - printspoofer (PrintSpoofer-BOF)"
 echo "  - 10 PrivKit extensions"
 echo "  - 28 SQL-BOF extensions"
 echo "  - 7 UAC-BOF-Bonanza extensions"
@@ -57,6 +58,11 @@ echo ""
 # Remove Defender-Exclusions-Creator-BOF
 echo "Removing Defender-Exclusions-Creator-BOF extension..."
 remove_extension "cGenerateDefenderExclusion"
+echo ""
+
+# Remove PrintSpoofer-BOF
+echo "Removing PrintSpoofer-BOF extension..."
+remove_extension "printspoofer"
 echo ""
 
 # Remove PrivKit extensions (both old and new naming conventions)

@@ -96,4 +96,4 @@ echo "  Failed/Incomplete: $failed_count"
 echo "=========================================="
 echo ""
 echo "Extensions are ready at: $EXTENSIONS_DIR"
-echo "Use 'extensions load <path>' in Sliver to load them."
+exit 0
