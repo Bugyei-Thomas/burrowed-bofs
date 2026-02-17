@@ -19,6 +19,7 @@ echo "  - printspoofer (PrintSpoofer-BOF)"
 echo "  - 10 PrivKit extensions"
 echo "  - 28 SQL-BOF extensions"
 echo "  - 7 UAC-BOF-Bonanza extensions"
+echo "  - uac_bypass_cmstp (sliver_extension_uac_bypass_cmstp)"
 echo ""
 read -p "Are you sure you want to continue? (yes/no): " confirm
 
