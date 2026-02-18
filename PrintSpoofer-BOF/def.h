@@ -13,216 +13,107 @@
 #ifndef STARTF_USESHOWWINDOW
 #define STARTF_USESHOWWINDOW 0x00000001
 #endif
-
 #ifndef STARTF_USESTDHANDLES
 #define STARTF_USESTDHANDLES 0x00000100
 #endif
-
 #ifndef SW_HIDE
 #define SW_HIDE 0
 #endif
-
 #ifndef CREATE_NO_WINDOW
 #define CREATE_NO_WINDOW 0x08000000
 #endif
-
 #ifndef CREATE_UNICODE_ENVIRONMENT
 #define CREATE_UNICODE_ENVIRONMENT 0x00000400
 #endif
-
 #ifndef LOGON_WITH_PROFILE
 #define LOGON_WITH_PROFILE 0x00000001
 #endif
-
 #ifndef HEAP_ZERO_MEMORY
 #define HEAP_ZERO_MEMORY 0x00000008
 #endif
-
 #ifndef TOKEN_ALL_ACCESS
 #define TOKEN_ALL_ACCESS 0x000F01FF
 #endif
+#ifndef TOKEN_QUERY
+#define TOKEN_QUERY 0x0008
+#endif
+#ifndef TOKEN_ADJUST_PRIVILEGES
+#define TOKEN_ADJUST_PRIVILEGES 0x0020
+#endif
+#ifndef SE_PRIVILEGE_ENABLED
+#define SE_PRIVILEGE_ENABLED 0x00000002L
+#endif
+#ifndef SDDL_REVISION_1
+#define SDDL_REVISION_1 1
+#endif
+#ifndef PRINTER_CHANGE_ADD_JOB
+#define PRINTER_CHANGE_ADD_JOB 0x00000100
+#endif
+#ifndef TH32CS_SNAPPROCESS
+#define TH32CS_SNAPPROCESS 0x00000002
+#endif
 
-typedef struct _CLIENT_ID {
-	HANDLE UniqueProcess;
-	HANDLE UniqueThread;
-} CLIENT_ID, *PCLIENT_ID;
+#ifndef TokenStatistics
+#define TokenStatistics 10
+#endif
+#ifndef TokenUser
+#define TokenUser 1
+#endif
 
-typedef struct _UNICODE_STRING {
-	USHORT Length;
-	USHORT MaximumLength;
-	PWSTR Buffer;
-} UNICODE_STRING, *PUNICODE_STRING;
+typedef struct tagPROCESSENTRY32W {
+  DWORD     dwSize;
+  DWORD     cntUsage;
+  DWORD     th32ProcessID;
+  ULONG_PTR th32DefaultHeapID;
+  DWORD     th32ModuleID;
+  DWORD     cntThreads;
+  DWORD     th32ParentProcessID;
+  LONG      pcPriClassBase;
+  DWORD     dwFlags;
+  WCHAR     szExeFile[MAX_PATH];
+} PROCESSENTRY32W, *PPROCESSENTRY32W;
 
-typedef struct _OBJECT_ATTRIBUTES {
-	ULONG Length;
-	HANDLE RootDirectory;
-	PUNICODE_STRING ObjectName;
-	ULONG Attributes;
-	PVOID SecurityDescriptor; 
-	PVOID SecurityQualityOfService;
-} OBJECT_ATTRIBUTES, *POBJECT_ATTRIBUTES;
-
-#define InitializeObjectAttributes( p, n, a, r, s ) { \
-	(p)->Length = sizeof( OBJECT_ATTRIBUTES ); \
-	(p)->RootDirectory = r; \
-	(p)->Attributes = a; \
-	(p)->ObjectName = n; \
-	(p)->SecurityDescriptor = s; \
-	(p)->SecurityQualityOfService = NULL; \
-}
-
-typedef enum _SYSTEM_INFORMATION_CLASS
-{
-	SystemBasicInformation,
-	SystemProcessorInformation,
-	SystemPerformanceInformation,
-	SystemTimeOfDayInformation,
-	SystemPathInformation,
-	SystemProcessInformation,
-	SystemCallCountInformation,
-	SystemDeviceInformation,
-	SystemProcessorPerformanceInformation,
-	SystemFlagsInformation,
-	SystemCallTimeInformation,
-	SystemModuleInformation,
-	SystemLocksInformation,
-	SystemStackTraceInformation,
-	SystemPagedPoolInformation,
-	SystemNonPagedPoolInformation,
-	SystemHandleInformation,
-	SystemObjectInformation,
-	SystemPageFileInformation,
-	SystemVdmInstemulInformation,
-	SystemVdmBopInformation,
-	SystemFileCacheInformation,
-	SystemPoolTagInformation,
-	SystemInterruptInformation,
-	SystemDpcBehaviorInformation,
-	SystemFullMemoryInformation,
-	SystemLoadGdiDriverInformation,
-	SystemUnloadGdiDriverInformation,
-	SystemTimeAdjustmentInformation,
-	SystemSummaryMemoryInformation,
-	SystemMirrorMemoryInformation,
-	SystemPerformanceTraceInformation,
-	SystemObsolete0,
-	SystemExceptionInformation,
-	SystemCrashDumpStateInformation,
-	SystemKernelDebuggerInformation,
-	SystemContextSwitchInformation,
-	SystemRegistryQuotaInformation,
-	SystemExtendServiceTableInformation,
-	SystemPrioritySeperation,
-	SystemVerifierAddDriverInformation,
-	SystemVerifierRemoveDriverInformation,
-	SystemProcessorIdleInformation,
-	SystemLegacyDriverInformation,
-	SystemCurrentTimeZoneInformation,
-	SystemLookasideInformation,
-	SystemTimeSlipNotification,
-	SystemSessionCreate,
-	SystemSessionDetach,
-	SystemSessionInformation,
-	SystemRangeStartInformation,
-	SystemVerifierInformation,
-	SystemVerifierThunkExtend,
-	SystemSessionProcessInformation,
-	SystemLoadGdiDriverInSystemSpace,
-	SystemNumaProcessorMap,
-	SystemPrefetcherInformation,
-	SystemExtendedProcessInformation,
-	SystemRecommendedSharedDataAlignment,
-	SystemComPlusPackage,
-	SystemNumaAvailableMemory,
-	SystemProcessorPowerInformation,
-	SystemEmulationBasicInformation,				
-	SystemEmulationProcessorInformation,		
-	SystemExtendedHandleInformation,
-	SystemLostDelayedWriteInformation,
-	SystemBigPoolInformation,
-	SystemSessionPoolTagInformation,
-	SystemSessionMappedViewInformation,
-	SystemHotpatchInformation,
-	SystemObjectSecurityMode,
-	SystemWatchdogTimerHandler,
-	SystemWatchdogTimerInformation,
-	SystemLogicalProcessorInformation,
-	SystemWow64SharedInformation,
-	SystemRegisterFirmwareTableInformationHandler,
-	SystemFirmwareTableInformation,
-	SystemModuleInformationEx,
-	SystemVerifierTriageInformation,
-	SystemSuperfetchInformation,
-	SystemMemoryListInformation,
-	SystemFileCacheInformationEx,
-	SystemThreadPriorityClientIdInformation,
-	SystemProcessorIdleCycleTimeInformation,
-	SystemVerifierCancellationInformation,
-	SystemProcessorPowerInformationEx,
-	SystemRefTraceInformation,
-	SystemSpecialPoolInformation,
-	SystemProcessIdInformation,
-	SystemErrorPortInformation,
-	SystemBootEnvironmentInformation,
-	SystemHypervisorInformation,
-	SystemVerifierInformationEx,
-	SystemTimeZoneInformation,
-	SystemImageFileExecutionOptionsInformation,
-	SystemCoverageInformation,
-	SystemPrefetchPatchInformation,
-	SystemVerifierFaultsInformation,
-	SystemSystemPartitionInformation,
-	SystemSystemDiskInformation,
-	SystemProcessorPerformanceDistribution,
-	SystemNumaProximityNodeInformation,
-	SystemDynamicTimeZoneInformation,
-	SystemCodeIntegrityInformation,
-	SystemProcessorMicrocodeUpdateInformation,
-	SystemProcessorBrandString,
-	SystemVirtualAddressInformation,
-	MaxSystemInfoClass
-} SYSTEM_INFORMATION_CLASS, *PSYSTEM_INFORMATION_CLASS;
-
-typedef struct _SYSTEM_HANDLE_TABLE_ENTRY_INFO {
-	USHORT UniqueProcessId;
-	USHORT CreatorBackTraceIndex;
-	UCHAR ObjectTypeIndex;
-	UCHAR HandleAttributes;
-	USHORT HandleValue;
-	PVOID Object;
-	ULONG GrantedAccess;
-} SYSTEM_HANDLE_TABLE_ENTRY_INFO, *PSYSTEM_HANDLE_TABLE_ENTRY_INFO;
-
-typedef struct _SYSTEM_HANDLE_INFORMATION {
-	ULONG NumberOfHandles;
-	SYSTEM_HANDLE_TABLE_ENTRY_INFO Handles[1];
-} SYSTEM_HANDLE_INFORMATION, *PSYSTEM_HANDLE_INFORMATION;
-
-WINBASEAPI BOOL WINAPI KERNEL32$CloseHandle(HANDLE hObject);
-WINBASEAPI DWORD WINAPI KERNEL32$GetLastError();
-WINBASEAPI PVOID WINAPI KERNEL32$HeapAlloc(HANDLE hHeap, DWORD dwFlags, SIZE_T dwBytes);
-WINBASEAPI PVOID WINAPI KERNEL32$HeapReAlloc(HANDLE hHeap, DWORD dwFlags, LPVOID lpMem, SIZE_T dwBytes);
-WINBASEAPI PVOID WINAPI KERNEL32$HeapFree(HANDLE hHeap, DWORD dwFlags, LPVOID lpMem);
-WINBASEAPI HANDLE WINAPI KERNEL32$GetProcessHeap();
+// KERNEL32
 WINBASEAPI HMODULE WINAPI KERNEL32$LoadLibraryA(LPCSTR lpLibFileName);
 WINBASEAPI FARPROC WINAPI KERNEL32$GetProcAddress(HMODULE hModule, LPCSTR lpProcName);
-WINBASEAPI HANDLE WINAPI KERNEL32$CreateNamedPipeA(LPCSTR lpName, DWORD dwOpenMode, DWORD dwPipeMode, DWORD nMaxInstances, DWORD nOutBufferSize, DWORD nInBufferSize, DWORD dwDefaultTimeout, LPSECURITY_ATTRIBUTES lpSecurityAttributes);
-WINBASEAPI HANDLE WINAPI KERNEL32$CreateFileA(LPCSTR lpFileName, DWORD dwDesiredAccess, DWORD dwShareMode, LPSECURITY_ATTRIBUTES lpSecurityAttributes, DWORD dwCreationDisposition, DWORD dwFlagsAndAttributes, HANDLE hTemplateFile);
-WINBASEAPI BOOL WINAPI KERNEL32$ConnectNamedPipe(HANDLE hNamedPipe, LPOVERLAPPED lpOverlapped);
-WINBASEAPI BOOL WINAPI KERNEL32$OpenProcess(PHANDLE ProcessHandle, DWORD DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes, PCLIENT_ID ClientId);
-DECLSPEC_IMPORT NTSTATUS NTAPI NTDLL$NtOpenProcess(PHANDLE ProcessHandle, DWORD DesiredAccess, POBJECT_ATTRIBUTES ObjectAttributes, PCLIENT_ID ClientId);
-WINBASEAPI BOOL WINAPI KERNEL32$CreatePipe(PHANDLE hReadPipe, PHANDLE hWritePipe, LPSECURITY_ATTRIBUTES lpPipeAttributes, DWORD nSize);
-WINBASEAPI BOOL WINAPI KERNEL32$ReadFile(HANDLE hFile, LPVOID lpBuffer, DWORD nNumberOfBytesToRead, LPDWORD lpNumberOfBytesRead, LPDWORD lpOverlapped);
-DECLSPEC_IMPORT WINBASEAPI BOOL WINAPI ADVAPI32$ImpersonateNamedPipeClient(HANDLE hNamedPipe);
-DECLSPEC_IMPORT NTSTATUS NTAPI NTDLL$NtQuerySystemInformation(SYSTEM_INFORMATION_CLASS, PVOID, ULONG, PULONG);
-DECLSPEC_IMPORT NTSTATUS NTAPI NTDLL$NtDuplicateObject(HANDLE, HANDLE *, HANDLE, HANDLE *, ACCESS_MASK, BOOLEAN, ULONG);
-WINBASEAPI BOOL WINAPI NTDLL$NtQueryInformationToken(HANDLE TokenHandle, DWORD TokenInformationClass, PVOID TokenInformation, ULONG TokenInformationLength, PULONG ReturnLength);
-WINBASEAPI BOOL WINAPI ADVAPI32$ImpersonateLoggedOnUser(HANDLE hToken);
-WINBASEAPI BOOL WINAPI ADVAPI32$RevertToSelf();
-WINBASEAPI BOOL WINAPI ADVAPI32$DuplicateTokenEx(HANDLE hExistingToken, DWORD dwDesiredAccess, LPSECURITY_ATTRIBUTES lpTokenAttributes, SECURITY_IMPERSONATION_LEVEL ImpersonationLevel, TOKEN_TYPE TokenType, PHANDLE phNewToken);
-WINBASEAPI BOOL WINAPI ADVAPI32$CreateProcessWithTokenW(HANDLE hToken, DWORD dwLogonFlags, LPCWSTR lpApplicationName, LPWSTR lpCommandLine, DWORD dwCreationFlags, LPVOID lpEnvironment, LPCWSTR lpCurrentDirectory, LPSTARTUPINFOW lpStartupInfo, LPPROCESS_INFORMATION lpProcessInformation);
-WINBASEAPI DWORD WINAPI KERNEL32$WaitForSingleObject(HANDLE hHandle, DWORD dwMilliseconds);
-WINBASEAPI VOID WINAPI KERNEL32$GetSystemInfo(LPSYSTEM_INFO lpSystemInfo);
-WINBASEAPI BOOL WINAPI KERNEL32$GetExitCodeProcess(HANDLE hProcess, LPDWORD lpExitCode);
-WINBASEAPI VOID WINAPI KERNEL32$Sleep(DWORD dwMilliseconds);
-WINBASEAPI size_t WINAPI MSVCRT$mbstowcs(wchar_t *wcstr, const char *mbstr, size_t count);
+WINBASEAPI HANDLE WINAPI KERNEL32$GetProcessHeap();
+WINBASEAPI DWORD WINAPI KERNEL32$GetTickCount();
+WINBASEAPI DWORD WINAPI KERNEL32$GetLastError();
+WINBASEAPI BOOL WINAPI KERNEL32$CloseHandle(HANDLE hHandle);
+WINBASEAPI DWORD WINAPI KERNEL32$GetCurrentProcessId();
+WINBASEAPI HANDLE WINAPI KERNEL32$GetCurrentProcess();
+WINBASEAPI HANDLE WINAPI KERNEL32$GetCurrentThread();
+WINBASEAPI PVOID WINAPI KERNEL32$HeapAlloc(HANDLE hHeap, DWORD dwFlags, SIZE_T dwBytes);
+WINBASEAPI BOOL WINAPI KERNEL32$HeapFree(HANDLE hHeap, DWORD dwFlags, LPVOID lpMem);
+WINBASEAPI HANDLE WINAPI KERNEL32$CreateNamedPipeA(LPCSTR, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, LPSECURITY_ATTRIBUTES);
+WINBASEAPI BOOL WINAPI KERNEL32$ConnectNamedPipe(HANDLE, LPOVERLAPPED);
+WINBASEAPI HANDLE WINAPI KERNEL32$CreateEventA(LPSECURITY_ATTRIBUTES, BOOL, BOOL, LPCSTR);
+WINBASEAPI DWORD WINAPI KERNEL32$WaitForSingleObject(HANDLE, DWORD);
+WINBASEAPI BOOL WINAPI KERNEL32$CreatePipe(PHANDLE, PHANDLE, LPSECURITY_ATTRIBUTES, DWORD);
+WINBASEAPI BOOL WINAPI KERNEL32$ReadFile(HANDLE, LPVOID, DWORD, LPDWORD, LPOVERLAPPED);
+WINBASEAPI HANDLE WINAPI KERNEL32$CreateToolhelp32Snapshot(DWORD, DWORD);
+WINBASEAPI BOOL WINAPI KERNEL32$Process32FirstW(HANDLE, PPROCESSENTRY32W);
+WINBASEAPI BOOL WINAPI KERNEL32$Process32NextW(HANDLE, PPROCESSENTRY32W);
+WINBASEAPI HANDLE WINAPI KERNEL32$OpenProcess(DWORD, BOOL, DWORD);
+WINBASEAPI BOOL WINAPI KERNEL32$GetComputerNameW(LPWSTR, LPDWORD);
+WINBASEAPI BOOL WINAPI KERNEL32$CancelIo(HANDLE hFile);
+
+// ADVAPI32
+WINADVAPI BOOL WINAPI ADVAPI32$OpenProcessToken(HANDLE, DWORD, PHANDLE);
+WINADVAPI BOOL WINAPI ADVAPI32$OpenThreadToken(HANDLE, DWORD, BOOL, PHANDLE);
+WINADVAPI BOOL WINAPI ADVAPI32$LookupPrivilegeValueW(LPCWSTR, LPCWSTR, PLUID);
+WINADVAPI BOOL WINAPI ADVAPI32$AdjustTokenPrivileges(HANDLE, BOOL, PTOKEN_PRIVILEGES, DWORD, PTOKEN_PRIVILEGES, PDWORD);
+WINADVAPI BOOL WINAPI ADVAPI32$ImpersonateNamedPipeClient(HANDLE);
+WINADVAPI BOOL WINAPI ADVAPI32$RevertToSelf();
+WINADVAPI BOOL WINAPI ADVAPI32$DuplicateTokenEx(HANDLE, DWORD, LPSECURITY_ATTRIBUTES, SECURITY_IMPERSONATION_LEVEL, TOKEN_TYPE, PHANDLE);
+WINADVAPI BOOL WINAPI ADVAPI32$CreateProcessWithTokenW(HANDLE, DWORD, LPCWSTR, LPWSTR, DWORD, LPVOID, LPCWSTR, LPSTARTUPINFOW, LPPROCESS_INFORMATION);
+WINADVAPI BOOL WINAPI ADVAPI32$GetTokenInformation(HANDLE, TOKEN_INFORMATION_CLASS, LPVOID, DWORD, PDWORD);
+WINADVAPI BOOL WINAPI ADVAPI32$ConvertStringSecurityDescriptorToSecurityDescriptorW(LPCWSTR, DWORD, PSECURITY_DESCRIPTOR*, PULONG);
+
+// USER32
+WINUSERAPI int WINAPIV USER32$wsprintfA(LPSTR, LPCSTR, ...);
+WINUSERAPI int WINAPIV USER32$wsprintfW(LPWSTR, LPCWSTR, ...);
+
+// MSVCRT
+WINBASEAPI int WINAPI MSVCRT$_wcsicmp(LPCWSTR, LPCWSTR);
+WINBASEAPI void* WINAPI MSVCRT$memcpy(void*, const void*, size_t);

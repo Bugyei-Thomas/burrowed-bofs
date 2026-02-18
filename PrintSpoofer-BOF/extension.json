@@ -1,38 +1,32 @@
 {
-  "name": "printspoofer",
-  "version": "1.0.0",
-  "command_name": "printspoofer",
-  "extension_author": "converted for sliver",
-  "original_author": "SlimeOnSecurity",
-  "repo_url": "https://github.com/SlimeOnSecurity/PrintSpoofer-BOF",
-  "help": "Abuse SeImpersonatePrivilege for privilege escalation from NetworkService to SYSTEM.",
-  "long_help": "Usage: printspoofer\n\nThis BOF abuses the SeImpersonatePrivilege by triggering a connection to a named pipe and impersonating the client to gain a SYSTEM token.",
-  "depends_on": "coff-loader",
-  "entrypoint": "go",
-  "files": [
-    {
-      "os": "windows",
-      "arch": "amd64",
-      "path": "printspoofer.x64.o"
-    },
-    {
-      "os": "windows",
-      "arch": "386",
-      "path": "printspoofer.x86.o"
-    }
-  ],
-  "arguments": [
-    {
-      "name": "interactive",
-      "desc": "Interactive mode",
-      "type": "int",
-      "optional": true
-    },
-    {
-      "name": "command",
-      "desc": "Command to execute",
-      "type": "string",
-      "optional": true
-    }
-  ]
+    "name": "printspoofer",
+    "version": "1.8.0",
+    "command_name": "printspoofer",
+    "extension_author": "converted for sliver",
+    "original_author": "itm4n",
+    "repo_url": "https://github.com/itm4n/PrintSpoofer",
+    "help": "Abuse SeImpersonatePrivilege or SeDebugPrivilege for SYSTEM escalation.",
+    "long_help": "Usage: printspoofer <command>\n\nThis BOF achieving SYSTEM escalation using two methods:\n1. Print Spooler Named Pipe (SeImpersonate)\n2. Token Stealing from user-mode processes (SeDebug)\n\nThe command is executed as SYSTEM and output is captured.",
+    "depends_on": "coff-loader",
+    "entrypoint": "go",
+    "files": [
+        {
+            "os": "windows",
+            "arch": "amd64",
+            "path": "printspoofer.x64.o"
+        },
+        {
+            "os": "windows",
+            "arch": "386",
+            "path": "printspoofer.x86.o"
+        }
+    ],
+    "arguments": [
+        {
+            "name": "command",
+            "desc": "Command to execute as SYSTEM",
+            "type": "string",
+            "optional": false
+        }
+    ]
 }
